@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>悬浮框</title>
+	<style>
+		
+/*悬浮框*/
+
+		#div1{
+			width: 60px;
+			height: 99px;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			background: #b7b7b7;
+		}
+		body{
+			height: 3000px;
+		}
+
+		
+	</style>
+</head>
+<body>
+	
+<!-- 悬浮框 -->
+
+	<div id='div1'></div>
+
+
+</body>
+<script>
+	
+// 悬浮框
+
+	window.onscroll = function(){//页面发生滚动时，悬浮框才会动
+		var oBox = document.getElementById('div1')
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+		var clientHeight = document.documentElement.clientHeight || document.body.clientHeight
+		move(Math.round(scrollTop +(clientHeight - oBox.offsetHeight)/2))
+	}
+	var timer
+	function move(target){
+		var oBox = document.getElementById('div1');
+		clearInterval(timer)
+		timer = setInterval(function(){
+			var speed = (target - oBox.offsetTop)/10
+			if(speed > 0){
+				speed = Math.ceil(speed)
+			}else{
+				speed = Math.floor(speed)
+			}
+			if(oBox.offsetTop == target){
+				clearInterval(timer)
+			}else{
+				oBox.style.top = oBox.offsetTop + speed + 'px'
+			}
+		},30)
+	}
+
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多物体运动</title>
+	<style>
+		
+/*多物体运动*/
+
+		div{
+			width: 150px;
+			height: 60px;
+			background: #ccc;
+			margin-top: 30px;
+		}
+
+
+	</style>
+</head>
+<body>
+	
+<!-- 多物体运动 -->
+
+	<div></div>
+	<div></div>
+	<div></div>
+
+</body>
+<script>
+	
+// 多物体运动
+	
+	var aDiv = document.getElementsByTagName('div')
+	for(var i = 0;i < aDiv.length;i++){
+		aDiv[i].onmousemove = function(){
+			move(this,300)
+		}
+		aDiv[i].onmouseout = function(){
+			move(this,150)
+		}
+	}
+	function move(dom,target){
+		clearInterval(dom.timer)
+		dom.timer = setInterval(function(){
+			var speed = (target - dom.offsetWidth)/6
+			speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+			if(dom.offsetWidth == target){
+				clearInterval(dom.timer)
+			}else{
+				dom.style.width = dom.offsetWidth + speed + 'px'
+			}
+		},30)
+	}
+	
+
+</script>
+</html>

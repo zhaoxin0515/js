@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>透明度</title>
+	<style>
+
+/*透明度*/
+
+		#box{
+			width: 200px;
+			height: 200px;
+			background: #000;
+			opacity: .4;
+			filter: alpha(opacity=40);
+		}
+
+
+	</style>
+</head>
+<body>
+	
+<!-- 透明度 -->	
+
+	<div id="box"></div>
+
+</body>
+<script>
+	
+// 透明度
+
+	var oBox = document.getElementById('box')
+	oBox.onmousemove = function(){
+		move(100)
+	}
+	oBox.onmouseout = function(){
+		move(40)
+	}
+	var timer
+	var alpha = 40
+	function move(target){
+		var speed = 0
+		clearInterval(timer)
+		timer = setInterval(function(){
+			if(alpha > target){
+				speed = -2
+			}else{
+				speed = 2
+			}
+			if(alpha == target){
+				clearInterval(timer)
+			}else{
+				alpha = alpha + speed
+				oBox.style.opacity = alpha/100
+				oBox.style.filter = 'alpha(opacity:'+alpha+')'
+			}
+		},30)
+		
+	}
+
+	
+</script>
+</html>

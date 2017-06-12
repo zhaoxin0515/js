@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>默认事件(鼠标右键)</title>
+	<style>
+
+/*默认事件(鼠标右键)*/
+
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.menu{
+			display: flex;
+			flex-direction: column;
+			height: 300px;
+			width: 300px;
+			position: absolute;
+			display: none;
+		}
+
+		.menu li{
+			flex: 1;
+			list-style: none;
+			border: 2px solid #b6b6b6;
+			border-bottom: none;
+			text-align: center;
+			line-height: 40px;
+		}
+
+		.menu li:last-child{
+			border-bottom: 2px solid #b6b6b6!important;
+		}
+
+		.menu li:hover{
+
+			background: #ddd;
+		}
+
+
+	</style>
+</head>
+<body>
+
+<!-- 默认事件(鼠标右键) -->
+　　<!-- 第一种 -->
+
+	<ul id="ul" style="width:100px; height:80px; background:#FF9; position:absolute; display:none;">
+		<li>111111111</li>
+		<li>111111111</li>
+		<li>111111111</li>
+		<li>111111111</li>
+	</ul>
+
+
+　　<!-- 第二种 -->
+	<ul class="menu" id="menu">
+	 	<li>我是菜单1</li>
+	 	<li>我是菜单2</li>
+	 	<li>我是菜单3</li>
+	 	<li>我是菜单4</li>
+	 	<li>我是菜单5</li>
+	 	<li>我是菜单6</li>
+	 </ul>
+
+</body>
+<script>
+
+//默认事件(鼠标右键)
+  //第一种
+
+		// document.oncontextmenu = function(event){
+		// 	var oUl = document.getElementById('ul')
+		// 	var evt = event || window.event
+		// 	oUl.style.left = evt.clientX + 'px'
+		// 	oUl.style.top = evt.clientY + 'px'
+		// 	oUl.style.display = 'block'
+		// 	return false
+		// }
+		// document.onclick = function(){
+		// 	var oUl = document.getElementById('ul')
+		// 	oUl.style.display = 'none'
+		// }
+  //第二种
+  		
+  		var oUl = document.getElementById('menu')
+  		document.oncontextmenu = function(evt){
+  			var evt = event || window.event
+  			oUl.style.left = evt.clientX + 'px'
+  			oUl.style.top = evt.clientY + 'px'
+  			oUl.style.display = 'block'
+  			return false
+  		}
+  		document.onclick = function(){
+  			oUl.style.display = 'none'
+  		}
+  		var aLi = oUl.children
+  		for(var i = 0;i < aLi.length;i++){
+  			aLi[i].onclick = function(){
+  				alert(this.innerHTML)
+  				var evt = window.event || event
+  				evt.stopPropagation()
+  			}
+  		}
+</script>
+</html>

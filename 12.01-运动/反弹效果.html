@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>反弹效果</title>
+	<style>
+		*{
+			padding: 0;
+			border: 0;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.box{
+			width: 50px;
+			height: 50px;
+			background: pink;
+			position: absolute;
+			left: 0;
+			top: 0;
+			border-radius: 50%
+		}
+	</style>
+</head>
+<script>
+	var speedX = 5
+	var speedY = 1
+	window.onload = function(){
+		var box = document.getElementsByClassName('box')[0]
+		var timer = setInterval(function(){
+			//右边界碰撞
+			if((document.body.clientWidth - box.offsetLeft) <= box.offsetWidth){
+				box.style.left = document.body.clientWidth - box.offsetWidth + 'px'
+				speedX *= -1       ///////
+			}
+			//左边界碰撞
+			if(box.offsetLeft <= 0){
+				box.style.left = 0
+				speedX *=  -1
+			}
+			//下边界碰撞
+			if((document.body.clientHeight - box.offsetTop) <= box.offsetHeight){
+				box.style.top = document.body.clientHeight - box.offsetHeight + 'px'
+				speedY *= -1
+			}
+			//上边界碰撞
+			if(box.offsetTop <= 0){
+				box.style.top = 0
+				speedY *= -1
+
+			}
+			box.style.left = box.offsetLeft + speedX + 'px'
+			box.style.top = box.offsetTop + speedY + 'px'
+		},300)
+	}
+</script>
+<body>
+	<div class="box"></div>
+</body>
+</html>

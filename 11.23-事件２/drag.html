@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>drag</title>
+	<style>
+		
+/*drag*/
+
+		.box{
+				width: 400px;
+				height: 200px;
+				border: 1px solid #b6b6b6;
+				position: absolute;
+				left: 0;
+				top: 0;
+				
+			}
+
+			.center{
+				left: 50%;
+				top: 50%;
+				margin-left: -200px;
+				margin-top: -100px;
+			}
+			
+			.box .bar{
+				
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				background: #000;
+				color: #fff;
+				text-align: center;
+				cursor: move;
+			}
+			
+			.box .contant{
+					
+				width: 100%;
+				height: 160px;
+				background: #ddd;
+				line-height: 160px;
+				text-align: center;
+
+			}
+
+			.box .contant input[type=button]{
+				
+				width: 100px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+		
+			}
+
+			.rect{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+
+	</style>
+</head>
+<body>
+	
+<!-- drag -->
+
+	<div class="box center" id="box">	
+		<div class="bar" id="bar">
+			点击这里进行拖拽
+		</div>
+		<div class="contant">
+			<input type="button" value="倒放" id="btn">
+		</div>
+	</div>
+
+
+</body>
+<script>
+	
+//drag
+	//阻止div中文字被选中;
+	
+	document.onmousedown = function(event){
+		var evt = window.event || event;
+		if(evt.target.nodeName != "INPUT"){
+			return false;
+		}
+	}
+	var oBox = document.getElementById('box')
+	var oBar = document.getElementById('bar')
+	var oBtn = document.getElementById('btn')
+	var timer
+	var arr = []
+	oBar.onmousedown = function(event){
+		var evt = window.event || event
+		var x = evt.offsetX
+		var y = evt.offsetY
+		var pos = [evt.clientX - x,evt.clientY - y]
+		arr.push(pos)
+		document.onmousemove = function(event){
+			var evt = window.event || event
+			oBox.style.left = evt.clientX - x + 'px'
+			oBox.style.top = evt.clientY - y + 'px'
+			var pos = [evt.clientX - x,evt.clientY - y]
+			arr.push(pos)
+		}
+	}
+	document.onmouseup = function(){
+		document.onmousemove = ''
+	}
+	oBtn.onclick = function(){
+		var i = arr.length-1
+		clearInterval(timer)
+		timer = setInterval(function(){
+			i--
+			if(i <= 0){
+				clearInterval(timer)
+				arr = []
+			}else{
+				oBox.style.left = arr[i][0] + 'px'
+				oBox.style.top = arr[i][1] + 'px'
+			}
+		},30)
+	}
+</script>
+</html>

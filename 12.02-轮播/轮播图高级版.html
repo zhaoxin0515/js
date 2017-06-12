@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图高级版</title>
+	<script src="move.js"></script>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+	body{
+		background: #b6b6b6;
+		background-image: url(img/lunbotu/bg.png);
+	}
+	.warp{
+		width: 450px;
+		height: 410px;
+		margin:120px auto;
+		overflow: hidden;
+		border-radius: 20px 20px 0 0;
+		box-shadow: 0 5px 10px #ddd;
+
+	}
+	.big_box{
+		width:450px;
+		height: 300px;
+		background: #b6b6b6;
+		position: relative;
+	}
+	.big_box ul{
+		position: relative;
+		width: 450px;
+		height: 300px;
+	}
+	.big_box ul li{
+		width: 450px;
+		height: 300px;
+		position: absolute;
+	}
+	.big_box ul li img{
+		width: 100%;
+		height: 100%;
+	}
+
+	.small_box{
+		width:450px;
+		height: 100px;
+		overflow: hidden;
+		padding:4px 0;
+		background: #fff;
+	}
+	.small_box ul{
+		width:900px;
+		height: 100px;
+		position: relative;
+		left: 0;
+	}
+	.small_box ul li{
+		float: left;
+		width: 146px;
+		height: 100px;
+		filter:alpha(opacity:60);
+		opacity: 0.6;
+		padding:0 2px;
+	}
+	.small_box ul li img{
+		width: 100%;
+		height: 100%;
+	}
+	#leftTouch,#rightTouch{
+		display: block;
+		position: absolute;
+		width: 225px;
+		height: 300px;
+		z-index: 100;
+	}
+	#leftTouch{
+		background: green;
+		opacity: .3;
+	}
+	#rightTouch{
+		background: red;
+		opacity: .3;
+		left: 225px;
+	}
+	#btnR,#btnL{
+		position: absolute;
+		display: block;
+		width: 80px;
+		height: 60px;
+		left: 0;
+		top: 140px;
+		z-index: 1000;
+		opacity: 0;
+		filter:alpha(opacity:0);
+		background: #ddd;
+		border-radius: 0 50% 50% 0;
+		box-shadow: 0 0 5px #fff;
+		
+	}
+	#btnR{
+		border-radius: 50% 0 0 50%;
+		left: 370px;
+	}
+	#btnR img,#btnL img{
+		width: 100%;
+		height: 100%;
+	}
+
+
+
+	</style>
+</head>
+<body>
+	<div class="warp" id='warp'>
+		<div class="big_box">
+			<span id="btnL">
+			</span>
+			<span id="leftTouch"></span>
+			<span id="rightTouch"></span>
+			<ul id="big_ul">
+				<li style="z-index: 1">
+					<img src="img/lunbotu/1.jpg" alt="">
+				</li>
+				<li><img src="img/lunbotu/2.jpg" alt=""></li>
+				<li><img src="img/lunbotu/3.jpg" alt=""></li>
+				<li><img src="img/lunbotu/4.jpg" alt=""></li>
+				<li><img src="img/lunbotu/5.jpg" alt=""></li>
+				<li><img src="img/lunbotu/6.jpg" alt=""></li>
+			</ul>
+			<span id="btnR">
+			</span>
+		</div>
+		<div class="small_box">
+			<ul id="small_ul">
+				<li style="opacity:1;filter:alpha(opacity:100)"><img src="img/lunbotu/1.jpg" alt=""></li>
+				<li><img src="img/lunbotu/2.jpg" alt=""></li>
+				<li><img src="img/lunbotu/3.jpg" alt=""></li>
+				<li><img src="img/lunbotu/4.jpg" alt=""></li>
+				<li><img src="img/lunbotu/5.jpg" alt=""></li>
+				<li><img src="img/lunbotu/6.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script>
+//获取元素
+//给btn做移入移出事件
+//点击小图跟换大图
+//移入时小图片变为不透明　移出透明
+//点击按钮变换大图
+	var oLeftBtn = document.getElementById('btnL')
+	var oRightBtn = document.getElementById('btnR')
+	var oLeftTouch = document.getElementById('leftTouch')
+	var oRightTouch = document.getElementById('rightTouch')
+	var oBig_ul = document.getElementById('big_ul')
+	var aBig_li = oBig_ul.children
+	var oSmall_ul = document.getElementById('small_ul')
+	var aSmall_li = oSmall_ul.children
+	oLeftTouch.onmouseover = oLeftBtn.onmouseover = function(){
+		move(oLeftBtn,'opacity',80)
+	}
+	oLeftTouch.onmouseout = oLeftBtn.onmouseout = function(){
+		move(oLeftBtn,'opacity',0)
+	}
+	oRightTouch.onmouseover = oRightBtn.onmouseover = function(){
+		move(oRightBtn,'opacity',80)
+	}
+	oRightTouch.onmouseout = oRightBtn.onmouseout = function(){
+		move(oRightBtn,'opacity',0)
+	}
+	//1.点击小图跟换大图　给小图添加事件　
+	var zIndex = 0
+	var index = 0
+	for(var i = 0;i < aSmall_li.length;i++){
+		aSmall_li[i].index = i
+		aSmall_li[i].onclick = function(){
+			if(this.index != index){
+				index = this.index
+				cut()
+				move(this,'opacity',100)
+			}
+		}
+		function cut(){
+			aBig_li[index].style.zIndex = zIndex++
+			aBig_li[index].style.opacity = 0
+			move(aBig_li[index],'opacity',100)
+			for(var j = 0;j < aSmall_li.length;j++){
+				aSmall_li[j].style.opacity = 0.6
+			}
+			aSmall_li[index].style.opacity = 1
+			if(index == 0){
+				move(oSmall_ul,'left',0)
+			}else if(index == aSmall_li.length-1){
+				move(oSmall_ul,'left',-(index - 2) * aSmall_li[0].offsetWidth)
+			}else{
+				move(oSmall_ul,'left',-(index - 1) * aSmall_li[0].offsetWidth)
+
+			}
+		}
+	//2.移入时小图片变为不透明　移出透明
+		aSmall_li[i].onmouseover = function(){
+			move(this,'opacity',100)
+		}
+		aSmall_li[i].onmouseout = function(){
+			if(this.index != index){
+				move(this,'opacity',60)
+			}  
+		}
+		oRightBtn.onclick = function(){
+			if(index < aBig_li.length -1){
+				index++
+			}else{
+				index = 0
+			}
+			cut()
+		}
+		oLeftBtn.onclick = function(){
+			if(index > 0){
+				index--
+			}else{
+				index = aBig_li.length-1
+			}
+			cut()
+		}
+	}
+</script>
+</html>
+
+
+	
+

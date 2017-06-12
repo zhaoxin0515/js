@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		ul{
+			width:330px;
+			height: 130px;
+			margin: 0 auto;
+		}
+		ul li{
+			width: 100px;
+			height: 100px;
+			margin: 15px 5px;
+			background: pink;
+			float: left;
+			list-style: none;
+		}
+	</style>
+	<script>
+		$(function(){
+			var sj = Math.floor(Math.random()*$('li').length)
+			$('li').eq(sj).css('background','blue')
+			$(document).click(function(){
+				$('li').eq(sj).parent().css('background','black')
+			})
+		})
+	</script>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

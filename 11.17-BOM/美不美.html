@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>美不美</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+//美不美
+
+	function meibumei(){
+		var i = confirm('美不美')
+		if(i){
+			document.write('恭喜你，背叛了你自己')
+		}else{
+			document.write('想好了再选')
+			setTimeout(function(){
+				meibumei()
+			},30)
+		}
+	}
+	meibumei()
+	
+</script>
+</html>

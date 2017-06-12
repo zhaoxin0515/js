@@ -1,0 +1,54 @@
+              <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跟随鼠标移动的小方块</title>
+	<style>
+
+/*跟随鼠标移动的小方块*/
+
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			height: 2000px;
+		}
+		#div{
+			width: 150px;
+			height: 150px;
+			background: pink;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+	</style>
+</head>
+<body>
+
+<!-- 跟随鼠标移动的小方块 -->	
+
+	<div id="div"></div>
+
+
+</body>
+<script>
+
+//跟随鼠标移动的小方块
+
+	var oDiv = document.getElementById('div')
+	document.onmouseover = function(event){//为啥要用document
+		var evt = window.event || event
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+		var x = evt.clientX - oDiv.offsetWidth/2
+		var y = evt.clientY - oDiv.offsetHeight/2 + scrollTop
+		oDiv.style.left = x + 'px'
+		oDiv.style.top = y + 'px'
+	}
+
+
+
+</script>
+ 
+</html>

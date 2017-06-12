@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隔行变色</title>
+	<style>
+
+/*隔行变色*/
+		*{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;	
+		}
+		li{
+			width: 500px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			border-radius: 4px;
+			box-shadow: 0 2px 3px #ddd;
+			margin: 3px 0;
+
+		}
+		ul{	width: 500px;
+			margin: 100px auto;
+		}
+		#btn{
+			display: block;
+			background: none;
+			border: 1px solid #b6b6b6;
+			width: 80px;
+			height: 30px;
+			margin: 40px auto;
+		}
+
+
+	</style>
+</head>
+<body>
+
+<!-- 隔行变色 -->
+
+	<ul>
+		<li>我是行</li>
+		<li>我是行</li>
+		<li>我是行</li>
+		<li>我是行</li>
+		<li>我是行</li>
+		<li>我是行</li>
+	</ul>
+	<input type="button" id='btn' value='隔行变色'>
+
+</body>
+<script>
+	//var oUl = document.getElementById('ul')
+	//oUl.innerHTML = '<div>890</div>'//890
+	//console.log(oUl.innerHTML)//原样输出所有的li
+	//console.log(oUl.innerText)//只输出li中的内容（1,2,3,4,5,6,7,8）
+	//oUl.innerText = '<div>78</div>'//输出<div>78</div>
+
+
+//隔行变色
+
+	var oBtn = document.getElementById('btn')
+	var aLi = document.getElementsByTagName('li')
+	var timer
+	oBtn.onclick = function(){
+		var num = 0
+		clearInterval(timer)
+		timer = setInterval(function(){
+			for(var i = 0;i < aLi.length;i++){
+				aLi[i].style.background = ''
+				var ys = Math.floor(Math.random()*1000000)
+				if(ys < 99999){
+					ys = Math.floor(Math.random()*1000000)
+				}
+			}
+			aLi[num].style.background = '#' + ys
+			num++
+			if(num == aLi.length){
+				clearInterval(timer)
+			}
+		},200)
+	}
+
+
+
+
+
+//高级版
+
+	var oBtn = document.getElementById('btn')
+	var aLi = document.getElementsByTagName('li')
+	oBtn.onclick = function(){
+		for(var i = 0;i < aLi.legth;i++){
+			aLi[i].style.background = ''
+		}
+	}
+
+	
+</script>
+</html>

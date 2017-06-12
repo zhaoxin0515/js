@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script>
+	window.onload = function(){
+		var red = document.getElementById('red')
+		var yellow = document.getElementById('yellow')
+		red.onmousemove = function(evt){
+			var evt = evt || window.event
+			var x = evt.clientX - red.offsetLeft//x是鼠标距离红框边的距离
+			var y = evt.clientY - red.offsetTop
+			if(y >= (red.offsetHeight - yellow.offsetHeight)){
+				yellow.style.top = red.offsetHeight - yellow.offsetHeight + 'px'
+			}else{
+				yellow.style.top = y + 'px'
+			}
+			if(x >= (red.offsetWidth - yellow.offsetWidth)){
+				yellow.style.lest = red.offsetWidth - yellow.offsetWidth + 'px'
+			}else{
+				yellow.style.left = x + 'px'
+			}
+		}
+	}
+	
+
+	
+</script>
+<body>
+	<div id="red" style="position: relative;margin: 0 auto;width: 300px;height: 300px;background: red">
+		<div id="yellow" style="position: absolute;left: 100px;top: 100px;width: 100px;height: 100px;background: yellow"></div>
+	</div>
+</body>
+</html>

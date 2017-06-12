@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户验证</title>
+</head>
+<body>
+<!-- 用户验证 -->
+
+
+	<input type="text" id="user"/>
+	<input type="password" id="password"/>
+	<input type="button" id="btn" value="按钮" />
+	<p id="p1"></p>
+	<p id="p2"></p>	  
+
+
+</body>
+<script>
+
+ //用户验证
+
+
+
+ 	var oUser = document.getElementById('user')	
+ 	var oPass = document.getElementById('password')
+ 	var oBtn = document.getElementById('btn')
+ 	var oP1 = document.getElementById('p1')
+ 	var reg = /\w+/g
+ 	oBtn.onclick = function(){
+ 		var ou = oUser.value
+ 		if(ou[0] > 0 && ou[0] < 9){
+ 			oP1.innerHTML = '首字母不能为数字'
+ 		}
+ 		if(ou.length < 6 || ou.length > 20){
+ 			oP1.innerHTML = '长度不小于６且不大于２０位'
+ 		}
+ 		if(reg.test(ou)){
+ 			oP1.innerHTML = 111
+ 		}else{
+ 			oP1.innerHTML = '用户名只能为数字字母下划线'
+ 		}
+ 		var op = oPass.value
+ 		if(op.length == 0){
+ 			oP1.innerHTML = '密码不能为空'
+ 		}
+ 	}
+ 		
+</script>
+</html>

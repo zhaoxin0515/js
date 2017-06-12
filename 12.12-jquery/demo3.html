@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		#box{
+			width: 200px;
+			height: 200px;
+			background: pink;
+			position: absolute;
+			
+		}
+	</style>
+	<script>
+		$(function(){
+			$('#btn').click(function(){
+				//不传参数没有动画
+				// $('#box').hide(3000)
+				// $('#box').show(3000)
+				//$('#box').toggle(2000)
+
+
+				//滑动  都有默认值:fast(200),slow(600)接收回调函数
+
+				// $('#box').slideUp()
+				// $('#box').slideDown()
+				//$('#box').slideToggle()
+
+
+				//淡入淡出
+				//$('#box').fadeOut(3000)
+				//$('#box').fadeIn(3000)
+				//$('#box').fadeToggle(3000)
+
+				//同步动画
+				//三个参数,第一个必传,第二个是时间,第三个是回调函数
+				// $('#box').animate({
+				// 	width:400,
+				// 	height:400,
+				// 	opacity:0.4,
+				// 	left:150,
+				// 	top:100
+
+				// },3000,function(){
+				// 	alert(11)
+				// })
+
+
+				// $('#box').animate({
+				// 	left:'+=800'
+				// })
+
+
+
+				//列队动画
+				// $('#box').animate({
+				// 	left:200
+				// }).animate({
+				// 	top:200
+				// }).animate({
+				// 	left:500
+				// }).css('background','blue')
+
+
+				// $('#box').animate({
+				// 	left:'200px'
+				// }).animate({
+				// 	top:200
+				// }).animate({
+				// 	left:500
+				// }).queue(function(){//queue方法为了确保动画列队结束后在执行CSS方法
+				// 	$(this).css('background','blue')
+				// })
+
+
+
+				// $('#box').animate({
+				// 	left:'200px'
+				// }).animate({
+				// 	top:200
+				// }).animate({
+				// 	left:500
+				// }).queue(function(next){//queue之后的代码不会继续执行,想要解决,用next方法
+				// 	$(this).css('background','blue')
+				// 	next()
+				// }).animate({
+				// 	width:400
+				// })
+
+
+
+				$('#box').animate({
+					left:200
+				},1000).animate({
+					top:200
+				},1000).animate({
+					left:500
+				},1000)
+
+				$('#stop').click(function(){
+					//$('#box').stop(false,false)
+					//$('#box').stop(true,true)
+					//$('#box').stop(true,false)
+					$('#box').stop(false,true)
+				})
+
+
+
+				// $('#box').animate({
+				// 	left:200
+				// },1000).delay(200).animate({
+				// 	top:200
+				// },1000).animate({
+				// 	left:500
+				// },1000)
+
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn">
+	<input type="button" value="stop" id="stop">
+	<div id="box"></div>
+	
+</body>
+</html>

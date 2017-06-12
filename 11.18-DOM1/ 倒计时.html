@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+</head>
+<script>
+	var num1 = "05"
+	var num2 = "08"
+	var timer
+	timer = setInterval(function(){
+		num2 = num2 < 10 ? '0' + num2 : num2
+		c3.src = 'img/' + num1[0] + '.jpg'
+		c4.src = 'img/' + num1[1] + '.jpg'
+		c5.src = 'img/' + num2[0] + '.jpg'
+		c6.src = 'img/' + num2[1] + '.jpg'
+		num2 = num2-1 + ""
+		if(num2 <= "0"){
+			num2 = "05"
+			num1 = "0"+ (num1-1)
+			console.log(num1)
+			if(num1 === "0-1"){
+				alert("倒计时结束")
+				clearInterval(timer)
+			}
+		}
+	},1000)
+</script>
+<body>
+	<div id="clock">
+		<img id = 'c1' src="img/0.jpg"/>
+		<img id = 'c2' src="img/6.jpg"/>
+		时
+		<img id = 'c3' src="img/0.jpg"/>
+		<img id = 'c4' src="img/5.jpg"/>
+		分
+		<img id = 'c5' src="img/3.jpg"/>
+		<img id = 'c6' src="img/2.jpg"/>
+		秒
+	</div>
+</body>
+</html>
+
+
+	
+	
+

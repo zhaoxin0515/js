@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		
+		div{
+			padding: 100px;
+			border: 3px solid pink;
+			text-align: center;
+			line-height: 20px;
+			color: blue;
+		}
+		.active{
+			background: pink
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			background: pink;
+			position: absolute;
+			left: 50px;
+			top:50px;
+			padding: 10px;
+			border:5px solid blue;
+		}
+	</style>
+</head>
+<script>
+	$(function(){
+		//$('.a1').children().css('border','1px solid green')
+		//$('.a1').find('div').css('border','1px solid black')
+
+
+		//$('.child').parent('div').css('background','blue')
+		//$('.child').parents('div').css('border','3px solid red')
+		//$('.child').parentsUntil('.a1').css('border','1px solid yellow')
+
+		//$('.a1').siblings().css('border','1px solid yellow')
+		//$('.a1').next().css('border','3px solid red')
+		//$('.a1').nextAll().css('border','3px solid red')
+		//$('.a1').nextUntil('.b3').css('border','3px solid blue')
+
+		//$('.a1').prev().css('border','3px solid red')
+		//$('.a1').prevAll().css('border','3px solid blue')
+		//$('.a1').prevUntil('.b2').css('border','3px solid blue')
+
+		//console.log($('div').html())
+		//$('div').html('<strong>好好学习</strong>')
+		//$('div').text('<strong>天天向上</strong>')
+		//console.log($('input').val())
+
+		//$('input').val('提交')
+
+		//console.log($('div').attr('id'))
+		//$('div').attr('class','div')
+		//$('div').removeAttr('class')
+		// $('div').attr({
+		// 	'class':'box',
+		// 	'lang':'ss'
+		// })
+
+		// $('input').click(function(){
+		// 	$('input').toggleClass('active')//有就删除,没有添加
+		// })
+
+
+		// var attr = $('div').css(['width','height','background'])
+		// for(var i in attr){
+		// 	//console.log(i)
+		// 	console.log(attr[i])
+		// }                
+
+
+		//console.log($('.box').width())
+		//$('.box').width('400px')
+
+		//console.log($('.box').innerWidth())
+		//console.log($('.box').outerWidth())
+
+		//console.log($('.box').position())
+		// console.log($('.box').offset().left)
+		// console.log($('.box').offset().top)
+		// $('.box').offset({
+		// 	left:'100',
+		// 	top:100
+		// })
+
+
+		//var $box = $('<div></div>')
+		//var $box = $('<div class="box">111</div>')
+		// $('body').append($box)
+		// $box.appendTo($('body'))
+
+		// $('strong').prepend($box)
+		// $box.prependTo($('strong'))
+
+		// $('strong').after($box)
+		// $('strong').before($box)
+
+
+		//$('strong').wrap('<div></div>')
+		//$('strong').wrap('<div>0.0</div>')
+		//$('strong').wrap('<div><em></em></div>')
+		//$('strong').unwrap()
+		//$('strong').wrapInner('<i></i>')
+
+
+		// var clone = $('strong').clone()
+		// $('body').append(clone)
+
+		//$('strong').replaceWith('<em></em>')
+		//$('strong').remove()
+
+		// var arr = [1,2,3,4,5,6,7,8,9,0]
+		// for(var i in arr){
+		// 	console.log(typeof(i))
+		// 	//console.log(arr[i])
+
+		// }
+		
+
+	})
+</script>
+<body>
+	<strong>
+		<b></b>
+	</strong>
+	<div class="box"></div>
+
+	<div id="box">1</div>
+	<input type="text" value="按钮">
+	<div class="b2">22</div>
+	<div class="b3">33</div>
+	<div class="a1">1
+		<div class="a2">2
+			<div class="a3">3
+				<div class="child">4</div>
+			</div>
+		</div>
+	</div>
+	<div class="b1">11</div>
+	<div class="b2">22</div>
+	<div class="b3">33</div>
+</body>
+</html>

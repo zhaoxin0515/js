@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		.wrap{
+		width: 400px;
+		height: 600px;
+		margin: 80px auto;
+		border: 1px solid #b6b6b6;
+	}
+	.nav{
+		width: 100%;
+		height: 100px;
+		display: flex;
+	}
+	.nav input{
+		flex: 1;
+		height: 100px;
+		text-align: center;
+		font-size: 24px;
+		background: #fff;
+		border: 2px solid #f99;
+		border-right: none;
+		box-sizing: border-box;
+		line-height: 100px;
+
+		transition: all .5s;
+	}
+	.nav input:nth-of-type(3){
+		border-right:2px solid #f99;
+	}
+	.nav .active{
+	
+		background: pink;
+
+	}
+	.main{
+		width: 100%;
+		height: 500px;
+	}
+	</style>
+</head>
+<script>
+	$(function(){
+		$('.nav').children('input').click(function(){
+			$.('main').children('div').css('display','none').eq($(this).index()).css('display','')
+		})
+	})
+</script>
+<body>
+	<div class="wrap">
+		<div class="nav" id="nav">
+			<input index=1 type="button" value="选项1" class="active">
+			<input index=2 type="button" value="选项2">
+			<input index=3 type="button" value="选项3">
+		</div>
+		<div class="main">
+			<div style="background: red"></div>
+			<div style="background: blue"></div>
+			<div style="background: yellow"></div>
+		</div>
+	</div>
+</body>
+</html>

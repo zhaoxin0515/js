@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五边形和六边形</title>
+	<style>
+		#box{
+			width: 50px;
+			height: 50px;
+			margin: 50px auto;
+			border-left: 50px solid red;
+			border-top: 50px solid yellow;
+			border-right: 50px solid blue;
+			border-bottom: 50px solid green;
+		}
+
+		#demo{
+			width: 54px;
+			height: 0px;
+			margin: 100px auto;
+			border-top: 50px solid blue;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			position: relative;
+		}
+
+
+
+		#demo::before{
+			content: '';
+			width: 0px;
+			height: 0px;
+			border-bottom: 50px solid blue;
+			border-left: 47px solid transparent;
+			border-right: 47px solid transparent;
+			position: absolute;
+			top: -100px;
+			left: -20px;
+		}
+		
+		
+
+		#six{
+			width: 120px;
+			height: 60px;
+			background: pink;
+			position: relative;
+			margin: 100px auto;
+		}
+		#six::before{
+			content: '';
+			width: 0px;
+			height: 0px;
+			border-bottom: 40px solid pink;
+			border-left: 60px solid transparent;
+			border-right: 60px solid transparent;
+			position: absolute;
+			top: -40px;
+		}
+		#six::after{
+			content: '';
+			width: 0px;
+			height: 0px;
+			border-top: 40px solid pink;
+			border-left: 60px solid transparent;
+			border-right: 60px solid transparent;
+			position: absolute;
+			top: 60px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+
+	<div id="demo"></div>
+
+	<div id="six"></div>
+</body>
+</html>
+		

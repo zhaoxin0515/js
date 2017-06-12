@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随机色</title>
+	<style>
+	/*随机色*/
+
+
+		#box{
+			width: 200px;
+			height: 200px;
+			background: #b6b6b6;
+		}
+
+
+	</style>
+</head>
+<body>
+<!-- 随机色   -->
+		<div id="box"></div> 
+		<input type="button" id="btn" value="按钮"> 
+
+
+</body>
+<script>
+//随机色
+
+
+	var oBox = document.getElementById('box')
+	var oBtn = document.getElementById('btn')
+	oBtn.onclick = function(){
+		var ys = Math.floor(Math.random()*1000000)
+		if(ys < 99999){
+			ys = Math.floor(Math.random()*1000000)
+		}
+		oBox.style.background = '#' + ys
+	}
+//1.获取元素
+//2.做点击事件
+//3.获取一个６位数的随机数并赋值
+//4.让div的背景色　＝　获取到的随机数
+
+
+</script>
+</html>

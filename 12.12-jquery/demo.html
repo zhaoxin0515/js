@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document 1 选择器</title>
+</head>
+<body>
+	<div class="main" id="main">
+		<span>username</span>
+		<input type="text" class="username">
+		<hr>
+		<span>passwd</span>
+		<input type="password" class="passwd">
+		<hr>
+		<button id="btn">提交</button>
+		<hr>
+		<div>
+			<div class="div">
+				<p class="p1" id="p1">555</p>
+			</div>
+		</div>
+	</div>
+</body>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		$(function(){
+			$('#main').on("click","#btn",function(){
+				if($('input').eq(0).val() == '' || $('input').eq(1).val() == ''){
+					$('.p1').html('dfkjdj')
+				}else{
+					console.log($('input').eq(0).val())
+				}
+			})
+		})
+
+
+
+		// $(function(){
+		// 	$('#btn').click(function(){
+		// 		if($('input[class = username]').val() == '' || $('input[class = passwd]').val() == ''){
+		// 			$('p[class]').html('dklf')
+		// 		}else{
+		// 			console.log($('input[class = username]').val())
+		// 		}
+		// 	})
+		// })
+
+
+
+
+
+		// $(function(){
+		// 	$('#btn').click(function(){
+				
+		// 		// console.log($('#main').find('input[class]').eq(0))查找下标为0的
+		// 		// console.log($('#main').find('input[class]:first'))查找第一个元素
+		// 		// console.log($('#main').find('input[class]:last'))查找最后一个元素
+		// 		//console.log($('#main').find('input:not(.username)'))查找class名不为username的
+		// 		//console.log($('#main').find('p:not(.p1)'))
+		// 		//console.log($('#main').find('p:even'))查找下标为偶数的
+		// 		//console.log($('#main').find('p:odd'))查找下标为基数的
+
+		// 		// $('#main').find('p:even').css('color','pink')
+		// 		// $('#main').find('p:odd').css('color','blue')
+
+		// 		//console.log($('#main').find('p').parent())
+		// 		console.log($('#main').find('p').parents('#main'))
+
+
+		// 	})
+		// })
+
+
+
+
+
+		
+	</script>
+</html>

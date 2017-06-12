@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>四位数验证码</title>
+</head>
+<body>
+<!-- 四位数验证码 -->	
+
+	<input type="text" id="txt">
+	<span id="span">1234</span>
+	<input type="button" id="btn" value="按钮">
+
+
+	<!-- <input type="text" id="txt1">
+	<span id="span1">1+1=?</span>
+	<input type="button" id="btn1" value="按钮">
+ -->
+
+</body>
+<script>
+//四位数验证码
+  //随机数字四位数
+
+
+	// var oSpan = document.getElementById('span')
+	// oSpan.onclick = function(){
+	// 	var sj = Math.floor(Math.random()*10000)
+	// 	if(sj < 999){
+	// 		sj = Math.floor(Math.random()*10000)
+	// 	}
+	// 	oSpan.innerHTML = sj
+	// }
+
+
+//1.获取元素
+//2.做点击事件
+//3.随即一个４位数并赋值
+//4.让元素的值＝随机数
+
+
+
+
+  //随机一个几加几的验证码
+
+  		// var oSpan = document.getElementById('span1')
+  		// oSpan.onclick = function(){
+  		// 	function aa(){
+  		// 		var sj = Math.floor(Math.random()*10)
+  		// 		return sj
+  		// 	}
+  		// 	var num1 = aa()
+  		// 	var num2 = aa()
+  		// 	oSpan.innerHTML = ''+num1+' + '+num2+' = ?'
+  		// }
+
+
+
+//1.获取元素
+//2.做点击事件
+//3.写一个函数用来做1位数的随机数，并return
+//4.调用两次函数并赋值
+//5.让元素的值等于函数赋值的字符串拼接
+
+
+
+
+  //随机数字加字母的四位数
+
+ 		
+		// oSp.onclick = function(){
+ 		// 	function aa(num){   //最好把变量写在函数中
+ 		// 		var arr = [1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+ 		// 		var arr1 = []
+ 		// 		for(var i = 0;i < num; i++){
+ 		// 			arr1.push(arr[Math.floor(Math.random()*arr.length)])
+ 		// 		}
+ 		// 		return arr1.join('')
+ 		// 	}
+ 		// 	oSp.innerHTML = aa(4)
+ 		// }
+
+ 		// oBtn.onclick = function(){
+ 		// 	var bb = oTxt.value
+ 		// 	if(bb == oSp.innerHTML){
+ 		// 		alert('验证成功')
+ 		// 	}else{
+ 		// 		alert('验证失败')
+ 		// 	}
+ 		// }
+
+
+</script>
+</html>

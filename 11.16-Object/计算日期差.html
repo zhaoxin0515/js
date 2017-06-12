@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算日期差</title>
+</head>
+<body>
+<!-- 计算日期差值 -->
+
+	<div id="div">
+		<input type="text" placeholder='起始年份'>
+		<input type="text" placeholder='起始月份'>
+		<input type="text" placeholder='起始日'>||
+		<input type="text" placeholder='终止年份'>
+		<input type="text" placeholder='终止月份'>
+		<input type="text" placeholder='终止日'>
+	</div>
+	<input type="button" value='计算日期差距' class="btn" onclick='jisuanriqi()'>	
+
+
+</body>
+<script>
+
+//计算日期差值 
+
+		function jisuanriqi(){
+			var oDiv = document.getElementById('div')
+			var aIn = oDiv.children 
+			var qishishuzu = []
+			var zhongzhishuzu = []
+			for(var i = 0; i < aIn.length;i++){
+				if(i < 3){
+					qishishuzu.push(aIn[i].value)
+				}else{
+					zhongzhishuzu.push(aIn[i].value)
+				}
+			}
+			var qishizifuchuan = qishishuzu.join('/')
+			var zhongzhizifuchuan = zhongzhishuzu.join('/')
+			var start = new Date(qishizifuchuan)
+			var end = new Date(zhongzhizifuchuan)
+			var s = start.getTime()
+			var e = end.getTime()
+			alert(Math.abs(e - s)/1000/60/60/24)
+		}
+
+		
+</script>
+</html>
+

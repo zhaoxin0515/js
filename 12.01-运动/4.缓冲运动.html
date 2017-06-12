@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>缓冲运动</title>
+	<style>
+		
+/*缓冲运动*/
+
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		#box{
+			width: 100px;
+			height: 100px;
+			background: #ddd;
+			position: absolute;
+			left: 800px;
+		}
+		.mark{
+
+			width: 2px;
+			height: 300px;
+			background: #000;
+			position: absolute;
+			left: 300px;
+		}
+
+
+	</style>
+</head>
+<body>
+	
+<!-- 缓冲运动 -->
+
+	<input type="button" value="点击" id="btn">
+	<div id="box"></div>
+	<div class="mark"></div>
+
+</body>
+<script>
+	
+// 缓冲运动
+
+		var oBtn = document.getElementById('btn')
+		oBtn.onclick = function(){
+			move(300)
+		}
+		var timer
+		function move(target){
+			var oBox = document.getElementById('box')
+			clearInterval(timer)
+			timer = setInterval(function(){
+				var speed = (target - oBox.offsetLeft)/6
+				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+				if(oBox.offsetLeft == target){
+					clearInterval(timer)
+				}else{
+					oBox.style.left = oBox.offsetLeft + speed + 'px'
+				}
+			},30)
+		}
+</script>
+</html>

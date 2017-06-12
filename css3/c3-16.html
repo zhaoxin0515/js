@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿天猫产品展示效果</title>
+	<style>
+		body{
+			background: #ccc;
+		}
+		#main{
+			width: 500px;
+			margin: 100px auto;
+		}
+		#main li{
+			width: 250px;
+			list-style: none;
+			background: #fff;
+			cursor: pointer;
+			border: 1px solid rgba(255,0,0,0);
+			padding: 1px;
+		}
+		.img img{
+			width: 250px;
+			transition: all .2s;
+		}
+		#main li:hover{
+			border: 1px solid rgba(255,0,0,1)
+		}
+		#main li:hover .img{
+			opacity: 0.6;
+		}
+		.goods_title{
+			color: #b6b6b6;
+			padding: 10px;
+		}
+		.price{
+			color: red;
+			padding: 10px;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="main">
+		<ul>
+			<li>
+				<div class="img">
+					<img src="img/111.jpg" alt="">
+				</div>
+				<div class="goods_title">
+					就是地方看手机爱卡大家赶紧
+				</div>
+				<div class="price">$499</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

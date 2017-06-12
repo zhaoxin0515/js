@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页刷新跳转</title>
+</head>
+<body>
+	
+	<input type="button" value="刷新" id="reload">
+	<input type="button" value="点击" id="btn">
+	<a href="http://www.baidu.com">跳转到百度</a>
+</body>
+<script>
+	
+	btn.onclick = function(){
+			window.location.href = 'http://www.baidu.com'  //网页跳转
+			window.location.reload()    //网页刷新 
+	}
+	alert(navigator.userAgent)   //获取网页信息
+	
+
+</script>
+</html>
+
+
+	

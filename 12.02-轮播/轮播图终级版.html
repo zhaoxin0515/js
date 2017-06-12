@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图终级版</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+	body{
+		background: #b6b6b6;
+		background-image: url(img/lunbotu/bg.png);
+	}
+	.warp{
+		width: 450px;
+		height: 410px;
+		margin:120px auto;
+		overflow: hidden;
+		border-radius: 20px 20px 0 0;
+		box-shadow: 0 5px 10px #ddd;
+
+	}
+	.big_box{
+		width:450px;
+		height: 300px;
+		background: #b6b6b6;
+		position: relative;
+	}
+	.big_box ul{
+		position: relative;
+		width: 450px;
+		height: 300px;
+	}
+	.big_box ul li{
+		width: 450px;
+		height: 300px;
+		position: absolute;
+	}
+	.big_box ul li img{
+		width: 100%;
+		height: 100%;
+	}
+
+	.small_box{
+		width:450px;
+		height: 100px;
+		overflow: hidden;
+		padding:4px 0;
+		background: #fff;
+	}
+	.small_box ul{
+		width:900px;
+		height: 100px;
+		position: relative;
+		left: 0;
+	}
+	.small_box ul li{
+		float: left;
+		width: 146px;
+		height: 100px;
+		opacity: 0.6;
+		padding:0 2px;
+	}
+	.small_box ul li img{
+		width: 100%;
+		height: 100%;
+	}
+	#leftTouch,#rightTouch{
+		display: block;
+		position: absolute;
+		width: 225px;
+		height: 300px;
+		z-index: 100;
+	}
+	#leftTouch{
+		background: green;
+		opacity: .3;
+	}
+	#rightTouch{
+		background: red;
+		opacity: .3;
+		left: 225px;
+	}
+	#btnR,#btnL{
+		position: absolute;
+		display: block;
+		width: 80px;
+		height: 60px;
+		left: 0;
+		top: 140px;
+		z-index: 1000;
+		opacity: 0;
+		filter:alpha(opacity:0);
+		background: #ddd;
+		border-radius: 0 50% 50% 0;
+		box-shadow: 0 0 5px #fff;
+		
+	}
+	#btnR{
+		border-radius: 50% 0 0 50%;
+		left: 370px;
+	}
+	#btnR img,#btnL img{
+		width: 100%;
+		height: 100%;
+	}
+</style>
+</head>
+<body>
+	<div class="warp" id='warp'>
+		<div class="big_box">
+			<span id="btnL">
+			</span>
+			<span id="leftTouch"></span>
+			<span id="rightTouch"></span>
+			<ul id="big_ul">
+				<li style="z-index: 1">
+					<img src="img/lunbotu/1.jpg" alt="">
+				</li>
+				<li><img src="img/lunbotu/2.jpg" alt=""></li>
+				<li><img src="img/lunbotu/3.jpg" alt=""></li>
+				<li><img src="img/lunbotu/4.jpg" alt=""></li>
+				<li><img src="img/lunbotu/5.jpg" alt=""></li>
+				<li><img src="img/lunbotu/6.jpg" alt=""></li>
+			</ul>
+			<span id="btnR">
+			</span>
+		</div>
+		<div class="small_box">
+			<ul id="small_ul">
+				<li style="opacity:1"><img src="img/lunbotu/1.jpg" alt=""></li>
+				<li><img src="img/lunbotu/2.jpg" alt=""></li>
+				<li><img src="img/lunbotu/3.jpg" alt=""></li>
+				<li><img src="img/lunbotu/4.jpg" alt=""></li>
+				<li><img src="img/lunbotu/5.jpg" alt=""></li>
+				<li><img src="img/lunbotu/6.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script>
+	var oLeftBtn = document.getElementById('btnL')
+	var oRightBtn = document.getElementById('btnR')
+	var oLeftTouch = document.getElementById('leftTouch')
+	var oRightTouch = document.getElementById('rightTouch')
+	var oBig_ul = document.getElementById('big_ul')
+	var aBig_li = oBig_ul.children
+	var oSmall_ul = document.getElementById('small_ul')
+	var aSmall_li = oSmall_ul.children
+	var index = 0
+	oLeftBtn.onmouseover = oRightBtn.onmouseover = function(){
+		this.style.opacity = 0.8
+	}
+	oLeftBtn.onmouseout = oRightBtn.onmouseout = function(){
+		this.style.opacity = 0
+	}
+	oLeftBtn.onclick = function(){
+		if(index <= 0){
+			index = aBig_li.length -1
+		}else{
+			index--
+		}
+		cut(index)
+	}
+
+	oRightBtn.onclick = function(){
+		if(index >= aBig_li.length -1){
+			index = 0
+		}else{
+			index++
+		}
+		cut(index)
+	}
+	for(var i = 0 ; i < aSmall_li.length; i++){
+		aSmall_li[i].index = i;
+		aSmall_li[i].onclick = function(){
+			if(index != this.index){
+				index = this.index
+				cut(index)
+			}
+		}
+	}
+	function cut(index){
+		for(j = 0;j < aBig_li.length;j++){
+			aBig_li[j].style.zIndex = 0
+			aSmall_li[j].style.opacity = 0.6
+		}
+		aBig_li[index].style.zIndex = 1
+		aSmall_li[index].style.opacity = 1
+		if(index == 0){
+			oSmall_ul.style.left = 0
+		}else if(index ==  aSmall_li.length-1){
+			oSmall_ul.style.left = -(index - 2) * aSmall_li[0].offsetWidth + 'px'
+		}else{
+			oSmall_ul.style.left = -(index -1) * aSmall_li[0].offsetWidth + 'px'
+		}
+	}
+
+
+</script>	
+
+</html>
+
+	var index = 0
+	var zIndex = 0	
+	oRightBtn.onmousemove = oLeftBtn.onmousemove = function(){
+		this.style.opacity = 1
+	}
+	oRightBtn.onmouseout = oLeftBtn.onmouseout = function(){
+		this.style.opacity = 0
+	}
+	oRightBtn.onclick = function(){
+		if(index >= aBig_li.length-1){
+			index = 0
+		}else{
+			index++
+		}
+		cut()
+	}
+	oLeftBtn.onclick = function(){
+		if(index <= 0){
+			index = aBig_li.length-1
+		}else{
+			index--
+		}
+		cut()
+	}
+	function cut(){
+		for(var i = 0; i < aSmall_li.length;i++){
+			aSmall_li[i].style.opacity = 0.6
+		}
+		if(index == 0){
+			oSmall_ul.style.left = 0
+		}else if(index == aSmall_li.length - 1){
+			oSmall_ul.style.left = -(index - 2) * aSmall_li[0].offsetWidth +'px'
+		}else{
+			oSmall_ul.style.left = -(index - 1) * aSmall_li[0].offsetWidth +'px'
+		}
+		aSmall_li[index].style.opacity = 1
+		aBig_li[index].style.zIndex = ++zIndex
+	}
+	for(var i = 0; i < aSmall_li.length;i++){
+		aSmall_li[i].index = i
+		aSmall_li[i].onclick = function(){
+			index = this.index
+			cut()
+		}
+	}	

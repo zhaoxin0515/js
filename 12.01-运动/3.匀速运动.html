@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匀速运动</title>
+	<style>
+		
+/*匀速运动*/
+
+		#div1 {
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 30px;
+			left: 1000px;
+		}
+
+	</style>
+</head>
+<body>
+	
+<!-- 匀速运动 -->
+
+	<input type="button" value="运动" id="btn" />
+	<div id="div1"></div>
+	<div style="width:1px; height:300px; position:absolute; left:500px; top:0;background:#000;"></div>
+</body>
+<script>
+	
+// 匀速运动
+
+	var oBtn = document.getElementById('btn')
+	oBtn.onclick = function(){
+		move(500)
+	}
+	var timer
+	function move(target){
+		var oBox = document.getElementById('div1')
+		clearInterval(timer)
+		timer = setInterval(function(){
+			var speed = 0
+			if(oBox.offsetLeft > target){
+				speed = -7
+			}else{
+				speed = 7
+			}
+			if(Math.abs(target - oBox.offsetLeft) < speed){
+				oBox.style.left = target + 'px'
+				clearInterval(timer)
+			}else{
+				oBox.style.left = oBox.offsetLeft + speed + 'px'
+			}
+
+		},30)
+	}
+
+	
+</script>
+</html>
+

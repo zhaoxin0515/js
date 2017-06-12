@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分享到</title>
+	<style>
+
+/*分享到*/
+
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 150px;
+			height: 200px;
+			background: #ddd;
+			position: relative;
+			left: -150px;
+		}
+		#box span{
+			display: block;
+			position: absolute;
+			width: 20px;
+			height: 60px;
+			color: #fff;
+			background: #ddd;
+			right: -20px;
+			top: 70px;
+		}
+
+	</style>
+</head>
+<body>
+
+<!-- 分享到 -->
+
+	<div id="box">
+		<span>分享到</span>
+	</div>
+
+</body>
+<script>
+
+// 分享到
+
+	var oBox = document.getElementById('box')
+	oBox.onmousemove = function(){
+		move(0)
+	}
+	oBox.onmouseout = function(){
+		move(-150)
+	}
+	var timer
+	function move(target){
+		var speed = 0
+		clearInterval(timer)
+		timer = setInterval(function(){
+			if(oBox.offsetLeft > target){
+				speed = -5
+			}else{
+				speed = 5
+			}
+			if(oBox.offsetLeft == target){
+				clearInterval(timer)
+			}else{
+				oBox.style.left = oBox.offsetLeft + speed + 'px'
+			}
+		},30) 
+	}
+
+</script>
+</html>

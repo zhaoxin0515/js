@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>聊天窗口</title>
+	<style>
+		.demo{
+			background: #6a6;
+			margin: 50px auto;
+			width: 300px;
+			height: 25px;
+			line-height: 25px;
+			padding: 10px;
+			border-radius:6px;
+			color: #fff;
+			position: relative;
+		}
+		.demo::before{
+			content:'';
+			border-top:10px solid transparent;
+			border-bottom: 10px solid transparent;
+			border-right: 10px solid #6a6;
+			position: absolute;
+			left:-10px;
+			top: 13px;
+		}
+	</style>
+</head>
+<body>
+	<div class="demo">hello world</div>
+</body>
+</html>

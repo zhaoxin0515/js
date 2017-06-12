@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>輸入框默認提示</title>
+</head>
+<script>
+	window.onload = function(){
+		var oU = document.getElementById('username')
+		tmpstr = oU.value
+		oU.onfocus = function(){
+			oU.value = ''
+			// if(oU.value == '請輸入你的名字'){
+			// 	oU.value = ''
+			// }
+		}
+		oU.onblur = function(){
+			oU.value = tmpstr
+			// if(oU.value == ''){
+			// 	oU.value = '請輸入你的名字'
+			// }
+		}
+	}
+</script>
+<body>
+	<input type="text" value = '請ggggg輸入你的名字.....' id = username>
+</body>
+</html>
+

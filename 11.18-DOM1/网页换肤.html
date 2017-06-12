@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页换肤</title>
+	<link rel="stylesheet" href="css/css1.css" id="link">
+</head>
+<body>
+	
+<!-- 网页换肤	 -->
+
+	<dl id="message">
+		<form>
+			<dt>
+				<strong>可以换肤的提交框：</strong>
+				<input class="btn2" id="css1" type="button" value="皮肤1" />
+				<input class="btn2" id="css2" type="button" value="皮肤2" />
+			</dt>
+			<dd>输入姓名：<input class="text" type="text" /></dd>
+			<dd>输入密码：<input class="text" type="password" /></dd>
+			<dd>请您留言：<textarea></textarea></dd>
+			<dd class="center"><input class="btn" type="submit" value="提交" /></dd>
+		</form>
+	</dl>
+
+</body>
+<script>
+	
+//网页换肤
+
+	var oBtn = document.querySelectorAll('.btn2')
+	for(var i = 0;i < oBtn.length;i++){
+		oBtn[i].onclick = function(){
+			// var cssH = 'css/' + this.getAttribute('id') + '.css'
+			// var oLink = document.getElementById('link')
+			// oLink.href = cssH
+
+			var Cid = this.getAttribute('id')
+			var oLink = document.getElementById('link')
+			oLink.href = "css/"+Cid+".css"
+		}
+	}
+
+
+	
+</script>
+</html>
+
+
+	
+	

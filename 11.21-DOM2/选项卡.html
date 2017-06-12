@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+		
+/*选项卡*/
+
+	.wrap{
+		width: 400px;
+		height: 600px;
+		margin: 80px auto;
+		border: 1px solid #b6b6b6;
+	}
+	.nav{
+		width: 100%;
+		height: 100px;
+		display: flex;
+	}
+	.nav input{
+		flex: 1;
+		height: 100px;
+		text-align: center;
+		font-size: 24px;
+		background: #fff;
+		border: 2px solid #f99;
+		border-right: none;
+		box-sizing: border-box;
+		line-height: 100px;
+
+		transition: all .5s;
+	}
+	.nav input:nth-of-type(3){
+		border-right:2px solid #f99;
+	}
+	.nav .active{
+	
+		background: pink;
+
+	}
+	.main{
+		width: 100%;
+		height: 500px;
+		position: relative;
+	}
+	.main img{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		transition: all .8s;
+		opacity: 0;
+	}
+
+
+	</style>
+</head>
+<body>
+	
+<!-- 选项卡 -->
+
+	<div class="wrap">
+		<div class="nav" id="nav">
+			<input index=1 type="button" value="选项1" class="active">
+			<input index=2 type="button" value="选项2">
+			<input index=3 type="button" value="选项3">
+		</div>
+		<div class="main">
+			<img src="img/xuanxiangka/1.jpg" alt="" style="opacity: 1">
+			<img src="img/xuanxiangka/2.jpg" alt="">
+			<img src="img/xuanxiangka/3.jpg" alt="">
+		</div>
+	</div>
+
+
+
+
+	<!-- <div class="wrap">
+		<div class="nav" id="nav">
+			<input index=1 type="button" value="选项1" class="active">
+			<input index=2 type="button" value="选项2">
+			<input index=3 type="button" value="选项3">
+		</div>
+		<div class="main">
+			<img src="img/xuanxiangka/1.jpg" alt="" style="opacity: 1">
+		</div>
+	</div> -->
+
+
+</body>
+<script>
+
+	$(function(){
+		$('.nav').children.click(function(){
+			console.log(11)
+		})
+	})
+	
+//选项卡
+	
+	// var aIn = document.getElementsByTagName('input')
+	// var aImg = document.getElementsByTagName('img')
+	// for(var i = 0;i < aIn.length;i++){
+	// 	aIn[i].index = i
+	// 	aIn[i].onclick = function(){
+	// 		for(var j = 0;j < aIn.length;j++){
+	// 			aIn[j].className = ''
+	// 			aImg[j].style.opacity = 0
+	// 		}
+	// 		this.className = 'active'
+	// 		aImg[this.index].style.opacity = 1
+	// 	}
+	// }
+
+	var oNav = document.getElementById('nav')
+	var aIn = oNav.children
+	var oImg = document.getElementsByTagName('img')
+	oNav.onclick = function(event){
+		var evt = event || window.event
+		var index = evt.target.getAttribute('index')
+		for(var i = 0;i < aIn.length;i++){
+			aIn[i].className = ''
+		}
+		evt.target.className = 'active'
+		oImg[0].src = "img/xuanxiangka/"+index+".jpg"
+
+	}
+
+
+</script>
+</html>
+
+
+	
+	

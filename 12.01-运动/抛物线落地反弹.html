@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>抛物线落地反弹</title>
+	<style>
+		*{
+			padding: 0;
+			border: 0;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.box{
+			width: 50px;
+			height: 50px;
+			background: pink;
+			position: absolute;
+			left: 0;
+			top: 200px;
+			border-radius: 50%
+		}
+	</style>
+	<script>
+		var speedX = 3
+		var speedY = -20
+		window.onload = function(){
+			var box = document.getElementsByClassName('box')[0]
+			var timer = setInterval(function(){
+				if(box.offsetTop >= (document.body.offsetHeight - box.offsetHeight)){
+					box.style.top = document.body.offsetHeight - box.offsetHeight + 'px'
+					speedY *= -0.55
+					if(Math.abs(speedY) < 1){
+						speedY = 0
+					}
+				}
+				box.style.left = box.offsetLeft + speedX + 'px'
+				box.style.top = box.offsetTop + speedY + 'px'
+				speedY++
+			},30)
+			var timer2 = setInterval(function(){
+				speedX -= 0.3
+				if(speedX <= 0){
+					clearInterval(timer2)
+				}
+			},1000)
+		}
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>完美回放</title>
+	<style>
+		
+/*完美回放*/
+
+		html,body{
+			overflow:hidden;
+		}
+		body,div,h2,p{
+			margin:0;
+			padding:0;
+		}
+		body{
+			color:#fff;
+			background:#000;
+			font:12px/2 Arial;
+		}
+		p{
+			padding:0 10px;
+			margin-top:10px;
+		}
+		span{
+			color:#ff0;
+			padding-left:5px;
+		}
+		#box{
+			position:absolute;
+			width:300px;
+			height:150px;
+			background:#333;
+			border:2px solid #ccc;
+			top:50%;
+			left:50%;
+			margin:-75px 0 0 -150px;
+		}
+		#box h2{
+			height:25px;
+			cursor:move;
+			background:#222;
+			border-bottom:2px solid #ccc;
+			text-align:right;
+			padding:0 10px;
+		}
+		#box h2 a{
+			color:#fff;
+			font:12px/25px Arial;
+			text-decoration:none;
+			outline:none;
+		}
+	</style>
+</head>
+<body>
+	
+<!-- 完美回放 -->
+
+	<div id="box" style="margin-left: 0px; margin-top: 0px; left: 533px; top: 231px;">
+	    <h2><a href="javascript:;">点击回放拖动轨迹</a></h2>
+	    <p><strong>Drag:</strong><span id="span">false</span></p>
+	    <p><strong>offsetLeft:</strong><span id="span1">533</span></p>
+		<p><strong>offsetTop:</strong><span id='span2'>231</span></p>
+	</div>
+
+</body>
+<script>
+
+//回放
+
+	var oBox = document.getElementById('box')
+	var oSp = document.getElementById('span')
+	var oSp1 = document.getElementById('span1')
+	var oSp2 = document.getElementById('span2')
+	var timer
+	var arr = []
+	oBox.onmousedown = function(event){
+		var evt = window.event || event
+		var x = evt.offsetX
+		var y = evt.offsetY
+		var pos = [evt.clientX - x,evt.clientY - y]
+		arr.push(pos)
+		document.onmousemove = function(event){
+			var evt = window.event || event
+			oBox.style.left = evt.clientX - x + 'px'
+			oBox.style.top = evt.clientY - y + 'px'
+			var pos = [evt.clientX - x,evt.clientY - y]
+			arr.push(pos)
+			oSp.innerHTML = 'true'
+			oSp1.innerHTML = evt.clientX - x
+			oSp2.innerHTML = evt.clientY - y
+		}
+	}
+	document.onmouseup = function(){
+		document.onmousemove = null
+		oSp.innerHTML = 'false'
+	}
+	oBox.children[0].firstChild.onmousedown = function(event){
+		var evt = window.event || event
+		evt.stopPropagation()
+	}
+	oBox.children[0].firstChild.onclick = function(){
+		var i = arr.length-1
+		clearInterval(timer)
+		timer = setInterval(function(){
+			i--
+			if(i <= 0){
+				clearInterval(timer)
+				arr = []
+			}else{
+				oBox.style.left = arr[i][0] + 'px'
+				oBox.style.top = arr[i][1] + 'px'
+				oSp1.innerHTML = arr[i][0]
+				oSp2.innerHTML = arr[i][1]
+			}
+		},30)
+	}
+	
+</script>
+</html>

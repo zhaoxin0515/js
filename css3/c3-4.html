@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪元素</title>
+	<style>
+		.demo{
+			border: 1px solid #ccc;
+			width: 300px;
+			margin: 50px auto;
+			padding: 10px;
+		}
+		.demo::first-letter{/*首字下沉*/
+			font-size: 40px;
+			font-weight: bold;
+			float: left;
+		}
+
+		.demo::first-line{
+			color:red;
+		}
+
+		.demo1{
+			width: 300px;
+			border: 1px solid #ccc;
+			margin: 10px auto;
+			padding: 10px;
+			text-align: center;
+		}
+		.demo1::before{/*content是before和after必加的属性*/
+			content: url(img/1.jpg);
+			display:block;
+
+		}
+
+		.demo1::after{
+			content: url(img/6.jpg);
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="demo">
+		伪位留守村庄的德清阿婆，如何成为会用英语招揽游客的民宿主人？一个贫困落后的小村落怎样成了外国人争相涌来的国际村？还是那座山，还是那片林，还是那条播撒着竹叶光斑的羊肠小路
+	</div>
+	<div class="demo1">
+		css3新特性
+	</div>
+</body>
+</html>

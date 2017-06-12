@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>更多产品</title>
+	<style>
+		.item{
+			width: 100px;
+			height: 50px;
+			background: #eee;
+			border: 1px solid gray;
+			position: relative;
+		}
+		.fold,.unfold{
+			overflow: hidden;
+			height: 0
+		}
+	</style>
+</head>
+<script>
+	window.onload = function(){  //////////////
+		var oLink = document.getElementById('morelink')
+		var oDiv = document.getElementById('items')
+		oLink.onclick = function(){
+			var timer
+			if(oDiv.offsetHeight == 0){
+				clearInterval(oDiv.timer)
+				oDiv.timer = setInterval(function(){
+					if(oDiv.offsetHeight == 260){
+						clearInterval(timer)
+						return
+					}
+					var speed = Math.ceil((260 - oDiv.offsetHeight)/8)
+					oDiv.style.height = oDiv.offsetHeight + speed + 'px'
+				},30)
+			}else{
+				clearInterval(oDiv.timer)
+				oDiv.timer = setInterval(function(){
+					if(oDiv.offsetHeight == 0){
+						clearInterval(timer)
+						return
+					}
+					var speed = Math.floor(( - oDiv.offsetHeight)/8)
+					oDiv.style.height = oDiv.offsetHeight + speed + 'px'
+				},30)
+			}
+		}
+	}
+
+	
+	oLink.onclick = function(){
+		move()
+	}
+</script>
+<body>
+	<div id="morelink" class="item" style="height: 30px;display: block;">更多产品</div>
+	<div id="items" class="fold">
+		<div class="item">产品1</div>
+		<div class="item">产品2</div>
+		<div class="item">产品3</div>
+		<div class="item">产品4</div>
+		<div class="item">产品5</div>
+	</div>
+	<p id="number"></p>
+</body>
+</html>

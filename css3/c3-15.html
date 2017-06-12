@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rgba</title>
+	<style>
+		.box{
+			margin:100px auto;
+			clear: both;
+		}
+		.box li{
+			list-style: none;
+			float: left;
+			width: 30px;
+			height: 30px;
+			padding: 10px;
+			margin: 3px;
+			background: pink;
+		}
+		.opacity li:nth-child(1){opacity: 0.2}
+		.opacity li:nth-child(2){opacity: 0.4}
+		.opacity li:nth-child(3){opacity: 0.6}
+		.opacity li:nth-child(4){opacity: 0.8}
+		.opacity li:nth-child(5){opacity: 1}
+
+		
+		.rgba li:nth-child(1){background: rgba(0,0,255,0.2)}
+		.rgba li:nth-child(2){background: rgba(0,0,255,0.4)}
+		.rgba li:nth-child(3){background: rgba(0,0,255,0.6)}
+		.rgba li:nth-child(4){background: rgba(0,0,255,0.8)}
+		.rgba li:nth-child(5){background: rgba(0,0,255,1)}
+	</style>
+</head>
+<body>
+	<div class="box opacity">
+		<ul>
+			<li>0.2</li>
+			<li>0.4</li>
+			<li>0.6</li>
+			<li>0.8</li>
+			<li>1</li>
+		</ul>
+	</div>
+	<div class="box rgba">
+		<ul>
+			<li>0.2</li>
+			<li>0.4</li>
+			<li>0.6</li>
+			<li>0.8</li>
+			<li>1</li>
+		</ul>
+	</div>
+</body>
+</html>
+
+		

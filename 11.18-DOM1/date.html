@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间</title>
+</head>
+<script>
+	window.onload = function(){
+		var timer = setInterval(function(){
+			var d = new Date()
+			var h = d.getHours()
+			h = h < 10 ? '0' + h : h
+			var m = d.getMinutes()
+			m = m < 10 ? '0' + m : m
+			var s = d.getSeconds()
+			s = s < 10 ? '0' + s : s
+			var str = '' + h + m + s
+			c1.src = 'img/' + str[0] + '.jpg'
+			c2.src = 'img/' + str[1] + '.jpg'
+			c3.src = 'img/' + str[2] + '.jpg'
+			c4.src = 'img/' + str[3] + '.jpg'
+			c5.src = 'img/' + str[4] + '.jpg'
+			c6.src = 'img/' + str[5] + '.jpg'
+		},1000)img
+	}
+</script>
+<body>
+	<div id="clock">
+		<img id = 'c1' src="img/0.jpg"/>
+		<img id = 'c2' src="img/6.jpg"/>
+		时
+		<img id = 'c3' src="img/3.jpg"/>
+		<img id = 'c4' src="img/5.jpg"/>
+		分
+		<img id = 'c5' src="img/2.jpg"/>
+		<img id = 'c6' src="img/3.jpg"/>
+		秒
+	</div>
+</body>
+</html>

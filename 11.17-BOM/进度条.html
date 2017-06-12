@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>进度条</title>
+	<style>
+		
+/*进度条*/
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#wrap{
+		width: 400px;
+		height: 20px;
+		border: 1px solid #b6b6b6;
+		margin: 100px auto;
+		border-radius: 4px;
+		box-shadow: 0 0 4px #ddd;
+	}
+	#move{
+		width: 0;
+		height: 20px;
+		background: gray;
+		border-radius: 4px;
+	}
+	#span{
+		display: block;
+		float: left;
+		margin-left: 190px;
+		margin-top: -20px;
+		font-family: '微软雅黑';
+	}
+	.tip{
+		width: 200px;
+		height: 40px;
+		line-height: 40px;
+		margin:40px auto;
+		font-size: 30px
+	}
+
+	</style>
+</head>
+<body>
+
+<!-- 进度条 -->
+
+	<div class="tip">窗口即将关闭</div>
+	<div id='wrap'>
+		<div id="move"></div>
+		<span id='span'></span>
+	</div>	
+
+
+</body>
+<script>
+	
+//进度条
+
+	var oWrap = document.getElementById('wrap')
+	var oMove = document.getElementById('move')
+	var oSpan = document.getElementById('span')
+	var oW = oWrap.clientWidth
+	var num = 0
+	var timer
+	timer = setInterval(function(){
+		oMove.style.width = ++num + 'px'
+		oSpan.innerHTML = Math.floor((num / oW * 100)) + '%'
+		var ys = Math.floor(Math.random()*1000000)
+		if(ys < 99999){
+			ys = Math.floor(Math.random()*1000000)
+		}
+		oMove.style.background = '#' + ys
+		if(num == oW){
+			clearInterval(timer)
+		}
+	},30)
+		
+</script>
+</html>

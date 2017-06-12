@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿天猫专题过渡效果</title>
+	<style>
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		.main{
+			width: 280px;
+			border: 1px solid #b6b6b6;
+			margin: 100px auto;
+		}
+		.main li{
+			text-align: center;
+			list-style: none;
+			width: 280px;
+		}
+		.m_title{
+			font-size: 24px;
+			font-weight: bold;
+			margin: 5px;
+		}
+		.m_content{
+			color: #ccc;
+			margin-bottom: 5px;
+		}
+		.m_img img{
+			transform: scale(1);
+			transition: all 1s;
+		}
+		.main li:hover .m_img img{
+			transform: scale(1.1);
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<ul>
+			<li>
+				<div class="m_title">手机馆</div>
+
+				<div class="m_content">R9s Plus黑色版首发</div>
+
+				<div class="m_img"><img src="img/shouji.jpg" alt=""></div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

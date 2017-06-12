@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动的小方块</title>
+	<style>
+		
+/*移动的小方块*/
+
+	#div{
+		width: 150px;
+		height: 150px;
+		background: pink;
+		position: absolute;
+	}
+
+
+	</style>
+</head>
+<body>
+
+<!-- 移动的小方块 -->
+	<div id="div"></div>
+
+</body>
+<script>
+	
+//小方块移动
+	var oDiv = document.getElementById('div')
+	var left = 0
+	var timer = setInterval(function(){
+		oDiv.style.left = ++left + 'px'
+		if(left == 500){
+			clearInterval(timer)
+		}
+	},20)
+	
+</script>
+</html>
+
+
+	
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: fixed;
+			animation: move 2s infinite;
+		}
+		@keyframes  move{
+			/*from{top:0;left:20%;}
+			to{top: 0;left: 80%}*/
+
+			0%{top:0;left:20%; background: red}
+			25%{top: 0;left:80%; background: yellow}
+			50%{top: 80%;left: 80%; background: blue}
+			75%{top: 80%;left: 20%; background: green}
+			100%{top:0;left: 20%; background: pink}
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

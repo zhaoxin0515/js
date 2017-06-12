@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阴阳图</title>
+	<style>
+		body{
+			background: #ccc;
+		}
+		#taiji{
+			width: 150px;
+			height: 300px;
+			background: white;
+			margin: 100px auto;
+			border-left: 150px solid black;
+			border-radius: 50%;
+			position: relative;
+		}
+		#taiji::before{
+			content: '';
+			width: 0px;
+			height: 0px;
+			border: 50px solid #000;
+			padding: 25px;
+			background: #fff;
+			border-radius: 50%;
+			position: absolute;
+			left: -75px;
+		}
+		#taiji::after{
+			content: '';
+			width: 0px;
+			height: 0px;
+			border: 50px solid #fff;
+			padding: 25px;
+			background: #000;
+			border-radius: 50%;
+			position: absolute;
+			left: -75px;
+			top:150px;
+		}
+	</style>
+</head>
+<body>
+	<div id="taiji"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

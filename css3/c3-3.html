@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>结构伪选择器</title>
+	<style>
+		*{
+			padding: 0;
+			border: 0
+		}
+		.clearfix{
+			clear: both;
+			overflow: auto;
+		}
+		.demo{
+			border: 1px solid #ccc;
+			width: 300px;
+			margin: 50px auto;
+			padding: 10px;
+		}
+		.demo li{
+			float: left;
+			list-style: none;
+			padding: 2px;
+			border: 1px solid #ccc;
+			margin-right:4px;
+			width: 20px;
+			height: 20px;
+		}
+		.demo a{
+			display: block;
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			border-radius: 10px;
+			background: pink;
+			text-decoration: none;
+		}
+
+		/*.demo li:first-child{
+			background-color: #0f0;
+		}*/
+
+		/*.demo li:last-child{
+			background-color: #0f0;
+		}*/
+
+		/*.demo li:nth-child(3){
+			background-color: #0f0;
+		}*/
+
+		/*.demo li:nth-child(n){//选择所有
+			background-color: #0f0;
+		}*/
+
+		/*.demo li:nth-child(2n){/*偶数行
+			background-color: #0f0;
+		}*/
+
+		/*.demo li:nth-child(even){偶数行
+			background-color: #0f0;*/
+
+		/*.demo li:nth-child(2n+1){基数行
+			background-color: #0f0;
+		}*/
+
+		/*.demo li:nth-child(odd){基数行
+			background-color: #0f0;*/
+
+		/*.demo li:nth-child(n+5){选择第5个之后的
+			background-color: #0f0;*/
+
+		/*.demo li:nth-child(4n+1){每隔几个变
+			background-color: #0f0;
+*/
+		/*demo li:nth-last-child(3){从后面数
+			background-color: #0f0;*/
+
+		/*.demo li:nth-of-type(3){限定元素加p标签后
+			background-color: #0f0;*/
+
+		/*.demo li:nth-child(3){不限定元素
+			background-color: #0f0;*/
+
+		/*.demo li:first-of-type{
+			background-color: #0f0;*/
+
+		/*.demo li:last-of-type{
+			background-color: #0f0;*/
+
+		/*.demo li:only-child{只有一个子元素的时候
+			background-color: #0f0;*/
+
+		/*.demo li:only-of-type{
+			background-color: #0f0;*/
+
+		/*.demo li:empty{
+			background-color: #0f0标签中什么都没有;	*/
+	</style>
+</head>
+<body>
+	<div class="demo clearfix">
+		<ul class="clearfix">
+			<p>0</p>
+			<li><a href="">1</a></li>
+			<li><a href="">2</a></li>
+			<li><a href="">3</a></li>
+			<li><a href="">4</a></li>
+			<li><a href="">5</a></li>
+			<li><a href="">6</a></li>
+			<li><a href="">7</a></li>
+			<li><a href="">8</a></li>
+			<li><a href="">9</a></li>
+			<li><a href="">10</a></li>
+		</ul>
+	</div>
+
+	<div class="demo clearfix">
+		<ul class="clearfix">
+			<p>0</p>
+			<li><a href="">1</a></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

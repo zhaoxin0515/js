@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>某年--某年的差，并显示所有闰年</title>
+</head>
+<body>
+
+	<input type="text" id="txt1">
+	<input type="text" id="txt2">
+	<p id="p1"></p>
+	<input type="button" id="btn" value="按钮">
+
+
+</body>
+<script>
+	
+	//某年--某年的差，并显示所有闰年
+
+
+		var oBtn = document.getElementById('btn')
+		var oP1 = document.getElementById('p1');
+		oBtn.onclick = function(){
+			var oTxt1 = document.getElementById('txt1').value
+	 		var oTxt2 = document.getElementById('txt2').value
+	 		var d1 = new Date(oTxt1)
+	 		var d2 = new Date(oTxt2)
+	 		var old1 = d1.getTime()
+	 		var old2 = d2.getTime()
+	 		var num = (old2 - old1)/1000/60/60/24
+	 		alert(num)
+
+	 		var n1 = Number(oTxt1.split('/')[0])
+	 		var n2 = Number(oTxt2.split('/')[0])
+	 		var con = 0
+	 		for(var i = n1; i <= n2;i++){
+	 			if(i % 4 == 0 && i % 100 != 0 || i % 400 == 0){
+	 				con++
+	 			}
+	 		}
+	 		oP1.innerHTML = con
+		}
+
+		
+</script>
+</html>
+
+		

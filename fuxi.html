@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!--在一个文本框输入一个年份，判断这年是不是闰年 能被4整除并且不能被100整除能被400整除 --> 
+	<input type="text" value="" id="txt">
+	<input type="button" value="点击" id="btn">
+</body>
+<script type="text/javascript">
+//为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？
+	//alert(89/24);
+
+
+//求矩形的周长和面积（长和宽可以自定义），用编程描述
+	/*var ch=8;           
+	var k=5;
+	var mj=ch*k;
+	alert(mj);
+	var ch = 9;
+	var k = 8;
+	var zc = (ch+k)*2;
+	alert(zc);*/
+
+
+//定义2个变量 计算2个变量+-*/% 分别用document.write()和alert()显示出运算结果
+	/*var a=3;
+	var b=6;
+	alert(a+b);
+	alert(a-b);
+	alert(a*b);
+	alert(a/b);*/
+
+
+//给定一个三位数，分别把这个数字的百位、十位、个位算出来并显示。
+	/*var num=456;
+	alert(num%10);
+	alert (parseInt(num/10)%10);
+	alert (parseInt(num/100)%10);*/
+
+
+
+//使用document.write()显示一个用*组成菱形
+	/*document.write('###*###<br>');
+	document.write('##***#<br>');
+	document.write('#*****<br>');
+	document.write('&nbsp;***&nbsp;<br>');
+	document.write('&nbsp;&nbsp;*&nbsp;&nbsp;<br>');*/
+
+
+
+//小明要到美国旅游，可是那里的温度是以华氏度为单位记录的。它需要一个程序将华氏温度（80度）转换为摄氏度，并以华氏度和摄氏度为单位分别显示该温度。   提示：摄氏度与华氏度的转换公式为：摄氏度 = 5/9.0*(华氏度-32)
+	/*function sh(d){
+		var s=5/9.0*(d-32)
+		alert(s)
+	}
+	sh(80)*/
+
+//在一个文本框输入一个年份，判断这年是不是闰年 能被4整除并且不能被100整除 能被400整除
+	/*var oBtn = document.getElementById('btn');
+	var otxt = document.getElementById('txt');
+		oBtn.onclick = function(){
+			var kk=Number(otxt.value);
+			if(kk%4==0&&kk%100!=0||kk%400==0){
+				alert(kk+'shirunnian');
+			}else{
+				alert(kk+'shipingnian');
+			}
+		}
+*/
+
+
+
+//判断一个整数，属于哪个范围：大于0；小于0；等于0	
+	/*var oBtn = document.getElementById('btn');
+	var oTxt = document.getElementById('txt');
+		oBtn.onclick= function(){
+			var aa=Number(oTxt.value);
+			if(aa>0){
+				alert(aa+'dayu0');
+			}else if(aa==0){
+				alert(aa+'dengyu0');
+			}else if(aa<0){
+				alert(aa+'xiaoyu0')
+			}
+		}*/
+	/*	function qq(aa){
+		
+			if(aa>0){
+				alert(aa+'dayu0');
+			}else if(aa==0){
+				alert(aa+'dengyu0');
+			}else if(aa<0){
+				alert(aa+'xiaoyu0')
+			}
+	}
+	qq(22)*/
+
+//判断一个整数是否是3的倍数，并输出判断结果
+	/*var oBtn = document.getElementById('btn');
+	var oTxt = document.getElementById('txt');
+		oBtn.onclick= function(){
+			var ww=Number(oTxt.value);
+			if(ww%3==0){
+				alert(ww);
+			}
+		}*/
+	/*var num=prompt('输出一个数');
+	var num1=Number(num);
+	if(num%3==0){
+		alert(num+'shi3de beishu ');
+	}*/
+
+//给一个分数，判断它的等级，如果90以上为A  80-90为B 70-80为C 60-70为D 60以下  留级
+	/*var num=prompt('请输入一个数');
+	var n1 = Number(num);
+	if(n1>=90){
+		alert(n1+'A');
+	}else if(n1>=80&&n1<90){
+		alert(n1+'B');
+	}else if(n1>=70&&n1<80){
+		alert(n1+'C');
+	}else if(n1>=60&&n1<70){
+		alert(n1+'D')
+	}else if(n1<60){
+		alert(n1+'留级')
+	}
+*/
+
+
+//用switch case输出2016年一年中1月份，3月份，5月份，7月份，八月份，十月份，12月份是31天，四月份，六月份，九月份，11月份是30天，二月份是29天
+	/*var year=prompt('输入1~12的数字');
+	var years = Number(year);
+	switch(years){
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:alert(years+'月是31天');break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:alert(years+'月是30天');break;
+		case 2:alert(years+'月是28天');break;
+		default:alert(buhefa );
+	}
+*/
+
+//输入一个五位数，分别alert出它的个位 、十位、百位、千位、万位（选做）
+	/*var num=prompt('输入一个数');
+	var num1=Number(num);
+	alert(num1%10);
+	alert(parseInt(num1/10)%10);
+	alert(parseInt(num1/100)%10);
+	alert(parseInt(num1/1000)%10);
+	alert(parseInt(num1/10000)%10);
+*/
+
+
+
+
+</script> 
+</html>

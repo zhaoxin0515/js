@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>聊天对话框</title>
+	<style>
+		
+/*聊天对话框*/
+
+		*{
+			font-size: 14px; 
+			padding:0; 
+			margin:0;
+		}
+		.main{
+			position: relative;
+			margin: 20px auto;
+			border: 1px solid steelblue;
+			width: 430px;
+			height: 400px;
+		}
+		.msgInput{
+			display: block;
+			width: 406px;
+			height: 60px;
+			margin: 10px auto;
+			
+		}
+		.btn{
+			position: absolute;
+			width: 100px;
+			height: 29px;
+			bottom: 5px;
+			right: 10px;
+		}
+		.ul{
+			list-style: none;
+			width: 410px;
+			height: 280px;
+			margin: 5px auto;
+			border: 1px dotted #D1D3D6;
+			overflow-y: scroll;
+		}
+		.msgContent{
+			width:auto;
+			max-width: 250px;
+			height: auto;
+			word-break: break-all;
+			margin: 5px;
+			padding: 3px;
+			border-radius: 5px;
+		}
+
+		.ul .left{
+			float: left;
+			text-align: left;
+			background-color: lightgrey;
+		}
+		.ul .right{
+			float: right;
+			text-align: right;
+			background-color: yellowgreen;
+		}
+
+
+	</style>
+</head>
+<body>
+	
+<!-- 聊天对话框 -->
+	<div id="main" class="main">
+		<ul id="ul" class="ul">
+			<li class="msgContent left">hello?</li>
+			<div style="clear: both;"></div>
+			<li class="msgContent left">hello</li>
+			<div style="clear: both;"></div>
+			<li class="msgContent right">hi</li>
+			<div style="clear: both;"></div>
+			<li class="msgContent left">hehe</li>
+			<div style="clear: both;"></div>
+			<li class="msgContent left">goodbye</li>
+			<div style="clear: both;"></div>
+			<li class="msgContent right">。。。。</li>
+			<div style="clear: both;"></div>
+			<li class="msgContent right">sdfasdsadfassdfsdfsdfdsfsdfsdfsdfdfasdffasdfasfdasd fasd fasd fasdfasdfasdf</li>
+		</ul>
+		<textarea id="txt" class="msgInput"></textarea>
+		<button id="btn" class="btn">发送</button>
+	</div>
+
+
+</body>
+<script>
+	
+//聊天对话框
+
+	var oBtn = document.getElementById('btn')
+	var oTxt = document.getElementById('txt')
+	var oUl = document.getElementById('ul')
+	oBtn.onclick = function(){
+		oT = oTxt.value
+		var oLi = document.createElement('li')
+		oLi.innerHTML = oT
+		oLi.className = 'msgContent right'
+		var oDiv = document.createElement('div')
+		oDiv.style.clear = 'both'
+		oUl.appendChild(oDiv)
+		oUl.appendChild(oLi)
+		oTxt.value = ''
+		oLi.scrollIntoView()
+	}
+</script>
+</html>
